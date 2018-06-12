@@ -1,7 +1,6 @@
 0-current_working_directory script to list current working director 
- 
-1-listit script to show content of current directory
-2-bring_me_home script to change to user's home directory
+1-listit script to show content of current directory 
+2-bring_me_home script to change to user's home director y
 3-listfiles script to display directory contents in long format
 4-listmorefiles script to display hidden files in long format
 5-listfilesdigitonly script to display files in long format with id and group id displayed in numeric
