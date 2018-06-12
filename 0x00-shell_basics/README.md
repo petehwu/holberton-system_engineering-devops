@@ -1,3 +1,5 @@
+This project contains script files used to peform different tasks in the shell.  Files are listed below with brief description of action performed
+
 0-current_working_directory script to list current working director 
 
 1-listit script to show content of current directory 
