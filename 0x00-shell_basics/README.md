@@ -1,4 +1,5 @@
-0-current_working_directory script to list current working director \n
+0-current_working_directory script to list current working director 
+ 
 1-listit script to show content of current directory
 2-bring_me_home script to change to user's home directory
 3-listfiles script to display directory contents in long format
