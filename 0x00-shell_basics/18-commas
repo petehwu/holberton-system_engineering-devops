@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -amp && printf "\n" 
+ls -amp 
