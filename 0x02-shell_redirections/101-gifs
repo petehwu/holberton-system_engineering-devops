@@ -1,2 +1,2 @@
 #!/bin/bash
-find -type f -iname '*.gif' -printf '%s %p\n' | sort -n | rev | cut -d'/' -f1 | cut -d'.' -f2 |rev
+find -type f -iname '*.gif' -printf '%s %f\n' | LC_COLLATE=C sort -n -k1,2f | cut -d' ' -f2 | rev | cut -b 5- |rev
