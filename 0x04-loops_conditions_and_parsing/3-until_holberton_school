@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+## This script prints "Holberton School" 10 times using until loop
+
+a="Holberton School"
+END=10
+x=$END
+until [ $x -eq 0 ]; do
+	echo "$a"
+	x=$((x-1))
+done

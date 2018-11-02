@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#  This script prints out 12 hours and 60 minutes
+
+hour=0
+min=1
+hstart=$hour
+mstart=$min
+while [ $hstart -lt 13 ];
+do
+	echo "Hour: $hstart"
+	while [ $mstart -lt 60 ];
+	do
+		echo "$mstart"
+		mstart=$((mstart+1))
+	done
+	mstart=$min
+	hstart=$((hstart+1))
+done

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+## This script uses for loop to print out the filenames
+
+for i in "ls"; 
+do
+	$i | cut -d"-" -f2-
+done

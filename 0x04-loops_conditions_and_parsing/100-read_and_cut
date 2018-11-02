@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#this script displays columns 1, 3, 6 of the /etc/passwd file
+
+FILE="/etc/passwd"
+while read -r line
+do
+	echo "$line" | cut -d":" -f1,3,6
+done < "$FILE"

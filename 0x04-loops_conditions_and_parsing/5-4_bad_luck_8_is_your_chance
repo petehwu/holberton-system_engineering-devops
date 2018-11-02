@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# This scripts displays "Holberton School" 9 times using while loop, then "hi"
+
+## define end value
+END=0
+x=$END
+while [ $x -lt 10 ];
+do
+	if [ $x -eq 3 ]; then
+	    echo "bad luck"
+	elif [ $x -eq 7 ]; then
+		echo "good luck"
+	else
+	    echo "Holberton School"
+	fi
+	x=$((x+1))
+done

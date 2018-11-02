@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This scripts displays "Holberton School" 9 times using while loop, then "hi"
+
+## define end value
+END=11
+x=$END
+while [ $x -gt 0 ];
+do
+	if [ $x -eq 2 ]; then
+	    echo "Hi"
+	else
+	    echo "Holberton School"
+	fi
+	x=$((x-1))
+done

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This scripts displays "Holberton School" 10 times using while loop
+
+a="Holberton School"
+## define end value
+END=10
+x=$END
+while [ $x -gt 0 ];
+do
+	echo "$a"
+	x=$((x-1))
+done
