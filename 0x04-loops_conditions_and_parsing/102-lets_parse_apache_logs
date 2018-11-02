@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+## This script parses an apache log file and displys ip nd http_code
+FILE="apache-access.log"
+awk '{print $1, $9}' $FILE
