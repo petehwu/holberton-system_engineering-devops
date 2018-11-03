@@ -3,5 +3,5 @@
 
 for i in "ls"; 
 do
-	$i | cut -d"-" -f2-
+	$i | cut -d"-" -f2
 done
