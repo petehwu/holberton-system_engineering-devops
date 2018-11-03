@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# this scripts looks at the /etc/passwd file
+
+while IFS=: read -r UNAME PW U_ID G_ID UID_INFO HOME_DIR COMMAND
+do
+	echo "The user $UNAME is part of the $G_ID gang, lives in $HOME_DIR and rides $COMMAND. $U_ID's place is protected by the passcode $PW, more info about the user here: $UID_INFO"
+done < /etc/passwd
