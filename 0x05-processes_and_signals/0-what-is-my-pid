@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+## This script will display the pid of the script
+
+echo $$

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+## this script kills a command named 7-highlander without using kill
+pkill -f 7-highlander

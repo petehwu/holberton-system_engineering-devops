@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+## this script traps SIGTERM and SIGINT signals
+sigterm ()
+{
+	echo "I hate the kill command"
+	sudo rm /var/run/holbertonscript.pid
+	exit 0
+}
+sigint ()
+{
+	echo "Y U no love me?!"
+}
+sigquit ()
+{
+	sudo rm /var/run/holbertonscript.pid
+	exit 0
+}
+trap 'sigterm' SIGTERM
+trap 'sigint' SIGINT
+trap 'sigquit' SIGQUIT
+END=1
+sudo sh -c "echo $$ >> /var/run/holbertonscript.pid"
+
+while [ $END -eq 1 ]
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
+
+
