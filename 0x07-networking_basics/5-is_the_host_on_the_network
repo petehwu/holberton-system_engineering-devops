@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# This cript pings an IP address 5 times
 
 IP=$1
 if [ -z "$IP" ]

@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
+# This script uses netstat command to show listening ports and list pids
+
 sudo netstat -l -p
