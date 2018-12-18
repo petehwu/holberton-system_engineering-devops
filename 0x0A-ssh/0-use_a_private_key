@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
 #ssh into 35.237.46.15 using identity file
-ssh -o "StrictHostKeyChecking=no" -i  ~/.ssh/holberton ubuntu@35.237.46.15
+ssh -o "StrictHostKeyChecking no" -i  ~/.ssh/holberton ubuntu@35.237.46.15
