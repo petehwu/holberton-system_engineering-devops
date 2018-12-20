@@ -2,5 +2,5 @@
 # This script will install nginx server on a remote machine
 apt-get -y update
 apt-get -y install nginx
-IDXPTH=$(nginx -V 2>&1 | tr " " "\n" | grep -- "--prefix" | cut -d "=" -f2)
-echo "Holberton School" > "$IDXPTH/html/index.html"
+echo "Holberton School" > "/usr/share/nginx/html/index.html"
+
