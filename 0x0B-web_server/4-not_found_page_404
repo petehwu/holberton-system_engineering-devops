@@ -7,10 +7,10 @@ echo "Holberton School on Mission Street" > /usr/share/nginx/html/index.html
 /etc/init.d/nginx restart
 NEWBLOCK="server_name localhost\;\n\tlocation \/redirect_me \{\n \t\treturn 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;\n\t\}"
 SEARCH="server_name localhost;"
-sed -i "1,/$SEARCH/s/$SEARCH/$NEWBLOCK/" /etc/nginx/sites-available/default
+sed -i "0,/$SEARCH/s/$SEARCH/$NEWBLOCK/" /etc/nginx/sites-available/default
 /etc/init.d/nginx restart
 printf "Ceci n\'est pas une page\n\n" > /usr/share/nginx/html/custom_404.html
 NEW="error_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html \{\n\t\troot \/usr\/share\/nginx\/html\;\n\t\tinternal\;\n\t\}"
 OLD="#error_page 404 \/404.html;"
-sed -i "1,/$OLD/s/$OLD/$NEW/" /etc/nginx/sites-available/default
+sed -i "0,/$OLD/s/$OLD/$NEW/" /etc/nginx/sites-available/default
 service nginx restart
