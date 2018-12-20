@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+apt-get update
+apt-get -y upgrade
+apt-get -y install apache2 apache2-doc apache2-utils
+NEWENTRY="# Global configuration\nHttpProtocolOptions Unsafe\n"
+SRCHSTR="# Global configuration"
+sed -i "0,/$SRCHSTR/s/$SRCHSTR/$NEWENTRY/" /etc/apache2/apache2.conf
+service apache2 restart
