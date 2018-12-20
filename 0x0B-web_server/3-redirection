@@ -5,7 +5,7 @@ apt-get -y upgrade
 apt-get -y install nginx
 echo "Holberton School on Mission Street" > /usr/share/nginx/html/index.html
 service nginx restart
-NEWBLOCK="server_name localhost;\n\tlocation ~ \/redirect_me \{\n \t\treturn 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;\n\t\}"
+NEWBLOCK="server_name localhost;\n\tlocation  \/redirect_me\/ \{\n \t\treturn 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;\n\t\}"
 SEARCH="server_name localhost;"
 sed -i "0,/$SEARCH/s/$SEARCH/$NEWBLOCK/" /etc/nginx/sites-available/default
 service nginx restart
