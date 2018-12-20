@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script will configure the 404 page 
 IDXPTH=$(nginx -V 2>&1 | tr " " "\n" | grep -- "--prefix" | cut -d "=" -f2)
-printf "Ceci n\'est pas une page\n\n" > "$IDXPTH/html/404.html"
+echo "Ceci n'est pas une page" > "$IDXPTH/html/404.html"
 NEW="error_page 404 \/404.html;\n\tlocation = \/404.html \{\n\t\troot \/usr\/share\/nginx\/html\;\n\t\tinternal\;\n\t\}"
 OLD="#error_page 404 \/404.html;"
 sed -i --follow-symlinks "1,/$OLD/s/$OLD/$NEW/" /etc/nginx/sites-enabled/default
