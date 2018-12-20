@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# this script installs web server
+apt-get update
+apt-get -y upgrade
+apt-get -y install nginx
+echo "Holberton School on Mission Street" > /usr/share/nginx/html/index.html
+service nginx restart
