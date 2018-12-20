@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-# Configures a new Ubuntu machine with the stated requirements
-apt-get update
-apt-get -y upgrade
-apt-get -y install nginx
-echo "Holberton School FTW!!!" > /usr/share/nginx/html/index.html
-/etc/init.d/nginx restart
