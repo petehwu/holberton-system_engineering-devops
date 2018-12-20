@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# This script will install web  server on a remote machine
+# Configures a new Ubuntu machine with the stated requirements
 apt-get update
 apt-get -y upgrade
 apt-get -y install nginx
-echo "Holberton School on Mission Street" > /usr/share/nginx/html/index.html
+echo "Holberton School FTW!!!" > /usr/share/nginx/html/index.html
 /etc/init.d/nginx restart
