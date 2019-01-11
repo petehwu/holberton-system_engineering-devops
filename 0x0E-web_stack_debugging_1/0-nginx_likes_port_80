@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 # This script will reconfigure the nginx server to listen at port 80 instead of 8080
-NEWBLOCK="listen 80 default_server;\n"
-SEARCH="listen 8080 default_server;"
-sed -i "0,/$SEARCH/s/$SEARCH/$NEWBLOCK/" /etc/nginx/sites-enabled/default
-NEWBLOCK="listen [::]:80 default_server ipv6only=on;"
-SEARCH="listen [::]:8080 default_server ipv6only=on;"
-sed -i "0,/$SEARCH/s/$SEARCH/$NEWBLOCK/" /etc/nginx/sites-enabled/default
+NEWBLOCK="80 default_server"
+SEARCH="8080 default_server"
+sed -i "s/$SEARCH/$NEWBLOCK/g" /etc/nginx/sites-enabled/default
 service nginx restart
