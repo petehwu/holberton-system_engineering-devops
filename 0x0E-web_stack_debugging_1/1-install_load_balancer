@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# This script will set up HAproxy v1.5 and configure it round robin load balancing
-echo deb http://archive.ubuntu.com/ubuntu trusty-backports main universe | \
-      tee /etc/apt/sources.list.d/backports.list
-apt-get update
-apt-get install haproxy=1.5.\* -t trusty-backports
-ADDTEXT="\nlisten hap1 0.0.0.0:80\n\tmode http\n\tstats enable\n\tbalance roundrobin\n\toptionhttpclose\n\toption forwardfor\n\tserver 399-web-01 35.237.46.15:80 check\n\tserver 399-web-02 34.73.216.247:80 check"
-sed -i -e "\$a$ADDTEXT" /etc/haproxy/haproxy.cfg
