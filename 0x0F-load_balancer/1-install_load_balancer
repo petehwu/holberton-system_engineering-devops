@@ -6,3 +6,4 @@ apt-get update
 apt-get install haproxy=1.5.\* -t trusty-backports
 ADDTEXT="\nlisten hap1 0.0.0.0:80\n\tmode http\n\tstats enable\n\tbalance roundrobin\n\toptionhttpclose\n\toption forwardfor\n\tserver web-01 35.237.46.15:80 check\n\tserver web-02 34.73.216.247:80 check"
 sed -i -e "\$a$ADDTEXT" /etc/haproxy/haproxy.cfg
+service haproxy restart
