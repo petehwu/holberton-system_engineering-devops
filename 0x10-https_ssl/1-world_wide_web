@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# This script will use dig to get domain information
+
+if [[ "$#" -eq 1 ]]; then
+	declare -a V=("www" "lb-01" "web-01" "web-02")
+	for I in "${V[@]}"
+	do
+		SUB="$I.$1"
+		RES=$(dig +nocmd +noall +answer "$SUB" | awk 'FNR==1 {print}')
+		REC_TYPE=$(echo "$RES" | awk '{print $(NF-1)}')
+		REC_ADDR=$(echo "$RES" | awk '{print $(NF-0)}')
+		echo "The subdomain $I is a $REC_TYPE record and points to $REC_ADDR"	
+	done
+fi
+if [[ "$#" -eq 2 ]]; then
+	SUB="$2.$1"
+	RES=$(dig +nocmd +noall +answer "$SUB" | awk 'FNR==1 {print}')
+	REC_TYPE=$(echo "$RES" | awk '{print $(NF-1)}')
+	REC_ADDR=$(echo "$RES" | awk '{print $(NF-0)}')
+	echo "The subdomain $2 is a $REC_TYPE record and points to $REC_ADDR"	
+fi
