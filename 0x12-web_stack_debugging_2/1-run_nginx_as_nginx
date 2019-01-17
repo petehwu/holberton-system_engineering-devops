@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This script fixes some issues and configures nginx to run on port 8080
+sudo pkill apache2
+sudo chown nginx:nginx /etc/nginx/nginx.conf
+sudo chmod 644 /etc/nginx/nginx.conf
+NW="listen 8080 default_server"
+OG="listen 80 default_server"
+sed -i "0,/$OG/s/$OG/$NW/" /etc/nginx/sites-available/default
+NW="listen [::]:8080 default_server"
+OG="listen \[::\]:80 default_server"
+sed -i "0,/$OG/s/$OG/$NW/" /etc/nginx/sites-available/default
+sudo -u nginx service nginx start
