@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script issues the whoami command using a different user
+if [ "$#" -lt 1 ]; then
+	whoami
+else
+        sudo -u $1 whoami
+fi
