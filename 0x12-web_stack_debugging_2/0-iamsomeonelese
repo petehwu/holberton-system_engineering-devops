@@ -3,5 +3,5 @@
 if [ "$#" -lt 1 ]; then
 	whoami
 else
-        sudo -u $1 whoami
+        sudo -u "$1" whoami
 fi
