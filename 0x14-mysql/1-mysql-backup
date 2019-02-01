@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# This script creates a backup of all mysql db
 
 if [[ $# -ne 1 ]]
 then
