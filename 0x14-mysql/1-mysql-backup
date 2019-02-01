@@ -2,8 +2,8 @@
 
 if [[ $# -ne 1 ]]
 then
-	echo "Usage: ./1-mysql_backup <passworda">
+	echo "Usage: ./1-mysql_backup <password>"
 	exit 1
 fi
 mysqldump --all-databases --single-transaction --quick --lock-tables=false > backup.sql -u root --password="$1"
-tar -zcvf $(date +%d-%m-%Y).tar.gz backup.sql
+tar -zcvf "$(date +%d-%m-%Y).tar.gz" backup.sql
