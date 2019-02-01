@@ -3,8 +3,8 @@
 fname=$(date '+%d-%m-%Y')".tar.gz"
 if [[ $# -ne 1 ]]
 then
-	echo "Usage: ./1-mysql_backup <password>"
+	echo 'Usage: ./1-mysql_backup <password>'
 	exit 1
 fi
-mysqldump -u root --password="$1" --all-databases > "backup.sql"
+mysqldump -uroot -p"$1" --all-databases > "backup.sql"
 tar -zcvf "$fname" backup.sql
