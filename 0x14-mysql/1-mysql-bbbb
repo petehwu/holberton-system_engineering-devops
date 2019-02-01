@@ -1,0 +1,10 @@
+#!/usr/bin/env bash test
+# This script takes a backup of mysql db
+name=$(date '+%d-%m-%Y')".tar.gz"
+if [[ $# -ne 1 ]]
+then
+	echo "Usage: ./1-mysql_backup <password>"
+else
+        mysqldump -u root -p"$1" --all-databases > backup.sql
+	tar -cvzf "$name" backup.sql
+fi
