@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mysqldump --all-databases --single-transaction --quick --lock-tables=false > backup.sql -u root --password="$1"
+tar -zcvf $(date +%d-%m-%Y).tar.gz backup.sql
