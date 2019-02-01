@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # This script creates a backup of all mysql db
+fname=$(date '+%d-%m-%Y')".tar.gz"
 if [[ $# -ne 1 ]]
 then
 	echo "Usage: ./1-mysql_backup <password>"
 	exit 1
 fi
-mysqldump --all-databases > "backup.sql" -u root --password="$1"
-tar -zcvf "$(date +%d-%m-%Y).tar.gz" backup.sql
+mysqldump -u root --password="$1" --all-databases > "backup.sql"
+tar -zcvf "$fname" backup.sql
