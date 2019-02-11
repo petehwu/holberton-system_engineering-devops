@@ -3,6 +3,7 @@
 and then write to file as json
 """
 import json
+from collections import OrderedDict
 import requests
 import sys
 
@@ -21,7 +22,7 @@ if __name__ == '__main__':
         username = user.get("username")
         rows = []
         for t in tasks.json():
-            new_dict = {}
+            new_dict = OrderedDict() 
             new_dict['task'] = t.get("title")
             new_dict['completed'] = t.get("completed")
             new_dict['username'] = username
