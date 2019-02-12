@@ -23,7 +23,7 @@ if __name__ == '__main__':
         for t in tasks.json():
             t['username'] = username
             rows.append(t)
-        with open('USER_ID.csv', 'w', ) as csvfile:
+        with open('{}.csv'.format(str(sys.argv[1])), 'w', ) as csvfile:
             fieldnames = ["userId", "username", "completed", "title"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames,
                                     quoting=csv.QUOTE_ALL, delimiter=",",

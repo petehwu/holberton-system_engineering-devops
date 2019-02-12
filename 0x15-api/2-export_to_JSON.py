@@ -27,5 +27,5 @@ if __name__ == '__main__':
             new_dict['completed'] = t.get("completed")
             new_dict['username'] = username
             rows.append(new_dict)
-        with open('USER_ID.json', 'w') as jsonfile:
+        with open('{}.json'.format(str(sys.argv[1])), 'w') as jsonfile:
             json.dump({sys.argv[1]: rows}, jsonfile)
