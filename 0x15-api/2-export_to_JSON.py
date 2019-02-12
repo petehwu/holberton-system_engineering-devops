@@ -2,8 +2,8 @@
 """This script goes out to a REST API and gets some information
 and then write to file as json
 """
-import json
 from collections import OrderedDict
+import json
 import requests
 import sys
 
