@@ -16,9 +16,8 @@ def count_words(subreddit, word_list, hot_list=[], after=""):
         response = requests.get(uri, allow_redirects=False,
                                 headers=headers, params=parameters)
     if response.status_code in [404, 302] or after is None:
-        if not hot_list:
-            print()
-        else:
+
+        if hot_list:
             newList = [word for item in hot_list for word in item.split()]
             newList = [s.lower() for s in newList]
             word_list = [w.lower() for w in word_list]
@@ -39,4 +38,4 @@ def count_words(subreddit, word_list, hot_list=[], after=""):
         hot_list += t_list
         after = response.json().get('data').get('after')
         count_words(subreddit, word_list, hot_list, after)
-        return (hot_list)
+        return None
