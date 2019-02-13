@@ -9,14 +9,17 @@ def recurse(subreddit, hot_list=[], after=""):
     """
     headers = {'User-Agent': 'ubuntu:test.petehwu:v0.0.1 (by/u/petehwu)'}
     uri = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
-    if after is None:
-        parameters = None
+    parameters = {"after": after}
+    if (after == ""):
+        response = requests.get(uri, allow_redirects=False, headers=headers)
     else:
-        parameters = {"after": after}
-    response = requests.get(uri, allow_redirects=False,
-                            headers=headers, params=parameters)
-    if response.status_code == 404 or after is None:
-        return hot_list
+        response = requests.get(uri, allow_redirects=False,
+                                headers=headers, params=parameters)
+    if response.status_code in [404, 302] or after is None:
+        if not hot_list:
+            return None
+        else:
+            return hot_list
     else:
         res = response.json().get('data').get('children')
         t_list = [d.get('data').get('title') for d in res]

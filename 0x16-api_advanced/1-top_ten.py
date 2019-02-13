@@ -12,7 +12,7 @@ def top_ten(subreddit):
     uri = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     response = requests.get(uri, allow_redirects=False, headers=headers,
                             params=parameters)
-    if response.status_code == 404:
+    if response.status_code in [404, 302]:
         print("None")
     else:
         res = response.json().get('data').get('children')
