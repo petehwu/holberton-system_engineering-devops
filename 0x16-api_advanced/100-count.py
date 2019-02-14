@@ -15,6 +15,7 @@ def count_words(subreddit, word_list, hot_list=[], after=""):
     else:
         response = requests.get(uri, allow_redirects=False,
                                 headers=headers, params=parameters)
+    word_list = set(word_list)
     if not hot_list:
         hot_list = [{'word': w, 'occur': 0} for w in word_list]
     if response.status_code != 200 or after is None:
