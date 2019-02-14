@@ -8,7 +8,7 @@ def number_of_subscribers(subreddit):
     """This function gets the number of subscribers for subreddit
     """
     user_agent = {'User-Agent': 'ubuntu:test.petehwu:v0.0.1 (by/u/petehwu)'}
-    uri = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
+    uri = 'https://api.reddit.com/r/{}/about'.format(subreddit)
     response = requests.get(uri, allow_redirects=False, headers=user_agent)
     # print (response.status_code)
     if response.status_code != 200:
