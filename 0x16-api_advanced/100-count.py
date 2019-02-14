@@ -20,7 +20,6 @@ def count_words(subreddit, word_list, hot_list=[], after=""):
     if response.status_code != 200 or after is None:
         hot_list = [dd for dd in hot_list if dd.get('occur') > 0]
         if not hot_list:
-            return None
             return word_list
         else:
             hot_list = sorted(hot_list, key=lambda k: k['occur'], reverse=True)
