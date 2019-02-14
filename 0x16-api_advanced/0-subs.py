@@ -7,7 +7,7 @@ import requests
 def number_of_subscribers(subreddit):
     """This function gets the number of subscribers for subreddit
     """
-    user_agent = {'User-Agent': 'ubuntu:test.petehwu:v0.0.1 (by/u/petehwu)'}
+    user_agent = {'User-Agent': 'ubuntu:v0.0.1 (by/u/petehwu)'}
     uri = 'https://api.reddit.com/r/{}/about'.format(subreddit)
     response = requests.get(uri, allow_redirects=False, headers=user_agent)
     # print (response.status_code)
