@@ -15,27 +15,24 @@ def count_words(subreddit, word_list, hot_list=[], after=""):
     else:
         response = requests.get(uri, allow_redirects=False,
                                 headers=headers, params=parameters)
+    if not hot_list:
+        hot_list = [{'word': w, 'occur': 0} for w in word_list]
     if response.status_code in [404, 302] or after is None:
-
-        if hot_list:
-            newList = [word for item in hot_list for word in item.split()]
-            newList = [s.lower() for s in newList]
-            word_list = [w.lower() for w in word_list]
-            f_list = []
-            for word in word_list:
-                occur = newList.count(word)
-                if occur > 0:
-                    new_dict = {}
-                    new_dict['word'] = word
-                    new_dict['occur'] = occur
-                    f_list.append(new_dict)
-            f_list = sorted(f_list, key=lambda k: k['occur'], reverse=True)
-            for f in f_list:
-                print("{}: {}".format(f.get('word'), f.get('occur')))
+        if not hot_list:
+            return None
+        else:
+            hot_list = [dd for dd in hot_list if dd.get('occur') > 0]
+            hot_list = sorted(hot_list, key=lambda k: k['occur'], reverse=True)
+            for h in hot_list:
+                print("{}: {}".format(h.get('word'), h.get('occur')))
+            hot_list2 = [(h.get('word'), h.get('occur')) for h in hot_list]
+            return hot_list2
     else:
         res = response.json().get('data').get('children')
         t_list = [d.get('data').get('title') for d in res]
-        hot_list += t_list
+        t_list = [word.lower() for item in t_list for word in item.split()]
+        temp_list = []
+        for wd in hot_list:
+            wd['occur'] = wd.get('occur') + t_list.count(wd.get('word'))
         after = response.json().get('data').get('after')
-        count_words(subreddit, word_list, hot_list, after)
-        return None
+        return(count_words(subreddit, word_list, hot_list, after))
