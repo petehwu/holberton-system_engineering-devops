@@ -25,8 +25,6 @@ def count_words(subreddit, word_list, hot_list=[], after=""):
             hot_list = sorted(hot_list, key=lambda k: k['occur'], reverse=True)
             for h in hot_list:
                 print("{}: {}".format(h.get('word'), h.get('occur')))
-            hot_list2 = [(h.get('word'), h.get('occur')) for h in hot_list]
-            return hot_list2
     else:
         res = response.json().get('data').get('children')
         t_list = [d.get('data').get('title') for d in res]
