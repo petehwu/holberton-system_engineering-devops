@@ -18,10 +18,11 @@ def count_words(subreddit, word_list, hot_list=[], after=""):
     if not hot_list:
         hot_list = [{'word': w.lower(), 'occur': 0} for w in word_list]
     if response.status_code != 200 or after is None:
+        hot_list = [dd for dd in hot_list if dd.get('occur') > 0]
         if not hot_list:
+            print()
             return None
         else:
-            hot_list = [dd for dd in hot_list if dd.get('occur') > 0]
             hot_list = sorted(hot_list, key=lambda k: k['occur'], reverse=True)
             for h in hot_list:
                 print("{}: {}".format(h.get('word'), h.get('occur')))
@@ -29,8 +30,15 @@ def count_words(subreddit, word_list, hot_list=[], after=""):
         res = response.json().get('data').get('children')
         t_list = [d.get('data').get('title') for d in res]
         t_list = [word.lower() for item in t_list for word in item.split()]
+        t_list.sort()
         temp_list = []
         for wd in hot_list:
             wd['occur'] = wd.get('occur') + t_list.count(wd.get('word'))
+        # print ("++++++++++++++++++++++++++++")
+        # print (t_list)
+        # for h in hot_list:
+        #     print("{}: {}".format(h.get('word'), h.get('occur')))
+        # print("after {}".format(after))
+        # print("+++++++++++++++++++++++++++++")
         after = response.json().get('data').get('after')
         return(count_words(subreddit, word_list, hot_list, after))
