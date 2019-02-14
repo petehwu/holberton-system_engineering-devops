@@ -5,7 +5,7 @@ import requests
 
 
 def count_words(subreddit, word_list, hot_list=[], after=""):
-    """This function gets the top 10 hot posts for subreddit
+    """    This function gets the top 10 hot posts for subreddit
     """
     headers = {'User-Agent': 'ubuntu:test.petehwu:v0.0.1 (by/u/petehwu)'}
     uri = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
