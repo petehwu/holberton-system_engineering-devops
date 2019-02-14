@@ -16,11 +16,10 @@ def count_words(subreddit, word_list, hot_list=[], after=""):
         response = requests.get(uri, allow_redirects=False,
                                 headers=headers, params=parameters)
     if not hot_list:
-        hot_list = [{'word': w.lower(), 'occur': 0} for w in word_list]
+        hot_list = [{'word': w, 'occur': 0} for w in word_list]
     if response.status_code != 200 or after is None:
         hot_list = [dd for dd in hot_list if dd.get('occur') > 0]
         if not hot_list:
-            print()
             return None
         else:
             hot_list = sorted(hot_list, key=lambda k: k['occur'], reverse=True)
@@ -33,7 +32,8 @@ def count_words(subreddit, word_list, hot_list=[], after=""):
         t_list.sort()
         temp_list = []
         for wd in hot_list:
-            wd['occur'] = wd.get('occur') + t_list.count(wd.get('word'))
+            wd['occur'] = wd.get('occur') +\
+                          t_list.count(wd.get('word').lower())
         # print ("++++++++++++++++++++++++++++")
         # print (t_list)
         # for h in hot_list:
