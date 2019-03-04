@@ -9,6 +9,6 @@ file {'/etc/default/nginx' :
 }
 -> exec { 'change_ulimit' :
   path    => '/bin',
-  command => 'sed -i --follow-symlinks s/15/1000/ /etc/default/nginx'
+  command => 'sed -i --follow-symlinks s/15/1000/ /etc/default/nginx',
   notify  => Service['nginx']
 }
