@@ -9,7 +9,7 @@
 
 #### Timeline:
 **Issue detection:** First report of website outage by user at 03/01/2019 8:35AM PST\
-**Misleading Investigation:** Level 1 support verified that website was running by going to the website.  Since only roughly 50% of the requests resulted in error.  Level 1 supoort initially did not detect that there were issues with the server and closed the report as no action needed.  At 03/01/2019 10:00AM PST, more users started reporting website outage and Level 1 support were able to duplicate the outage spordically, after re-starting the web server and issue still occuring, at 03/01/2019 the issue was escalated to Level 2 Devops support team\ 
+**Misleading Investigation:** Level 1 support verified that website was running by going to the website.  Since only roughly 50% of the requests resulted in error.  Level 1 supoort initially did not detect that there were issues with the server and closed the report as no action needed.  At 03/01/2019 10:00AM PST, more users started reporting website outage and Level 1 support were able to duplicate the outage spordically, after re-starting the web server and issue still occuring, at 03/01/2019 the issue was escalated to Level 2 Devops support team.\
 **Incident Resolution:** After Level 1 team escalated to Level 2 team, Level 2 support team ran some tests and realized the web server was configured incorrectly.  Configuration file was updated and server was back to normal on 03/01/2019 at 1:30 PM
 
 #### Root cause and resolution:
