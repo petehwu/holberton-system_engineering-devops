@@ -1,0 +1,12 @@
+description "Gunicorn application server running airbnb-api"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+respawn
+setuid ubuntu
+setgid www-data
+
+env PATH=/home/ubuntu/airbnb/airbnbenv/bin
+chdir /home/ubuntu/airbnb/AirBnB_clone_v3-master
+exec gunicorn --workers 3 --bind 127.0.0.1:8002 wsgi-api
