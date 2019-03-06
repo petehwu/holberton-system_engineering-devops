@@ -8,5 +8,5 @@ setuid ubuntu
 setgid www-data
 
 env PATH=/home/ubuntu/airbnb/airbnbenv/bin
-chdir /home/ubuntu/airbnb/AirBnB_clone_v2-master/web_flask
+chdir /home/ubuntu/airbnb/AirBnB_clone_v2-master
 exec gunicorn --workers 3 --bind 127.0.0.1:8000 wsgi
