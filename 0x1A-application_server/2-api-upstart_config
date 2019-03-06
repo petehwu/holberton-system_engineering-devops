@@ -7,6 +7,11 @@ respawn
 setuid ubuntu
 setgid www-data
 
+env HBNB_MYSQL_USER=hbnb_dev
+env HBNB_MYSQL_PWD=hbnb_dev_pwd
+env HBNB_MYSQL_HOST=127.0.0.1
+env HBNB_MYSQL_DB=hbnb_dev_db
+env HBNB_TYPE_STORAGE=db
 env PATH=/home/ubuntu/airbnb/airbnbenv/bin
 chdir /home/ubuntu/airbnb/AirBnB_clone_v3-master
-exec gunicorn --workers 3 --bind 127.0.0.1:8002 wsgi-api
+exec gunicorn --workers 2 --bind 127.0.0.1:8002 wsgi-api
