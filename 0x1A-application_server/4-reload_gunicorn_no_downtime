@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# this script will gracefully shutdow gunicorn workers and reload new ones
+
+pgrep -P 1 gunicorn | while read -r line ; do
+    kill -HUP "$line"
+done
